@@ -10,7 +10,7 @@ interface Todos {
   todo: string;
 }
 
-const TodoList = ({todo,id, text}: Todos) => {
+const TodoList = ({todo,id}: Todos) => {
   const dispatch = useDispatch()
     const [mark, setMark] = useState(false);
   return (
