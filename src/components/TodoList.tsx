@@ -6,8 +6,8 @@ import { deleteTodo } from "@/redux/TodoSlice";
 
 interface Todos {
   id: number;
-  text: string;
   todo: string;
+	key: number;
 }
 
 const TodoList = ({todo,id}: Todos) => {

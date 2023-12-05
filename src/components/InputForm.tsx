@@ -14,7 +14,7 @@ interface Todos {
   todo: string;
 }
 
-const InputForm = ({id, text, }: Todos) => {
+const InputForm = ({ text}: Todos) => {
   const dispatch = useDispatch();
 	const todoList = useSelector((state: any) => state.todo.todoList);
   const [todoValue, setTodoValue] = useState("");
@@ -118,8 +118,9 @@ const InputForm = ({id, text, }: Todos) => {
 				{todoList.length > 0 ? (
             <>
               {" "}
-              {todoList.map((item) => (
-                <TodoList key={item.id} todo={item.todo} id={item.id} text={text} />
+              {todoList.map((item:Todos) => (
+                <TodoList key={item.id} todo={item.todo} id={item.id}  />
+								// done
               ))}
             </>
           ) : (
