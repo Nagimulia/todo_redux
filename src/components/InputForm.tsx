@@ -43,7 +43,7 @@ const InputForm = () => {
     },
   ];
 
-  const handleTodo = (e: FormEvent<HTMLFormElement>) => {
+  const handleTodo = (e:any) => {
     e.preventDefault();
     if (todoValue === "") {
       setErrMsg("Напишите,что хотите сделать");
