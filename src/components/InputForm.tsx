@@ -7,15 +7,15 @@ import ErrMsg from "./messages/ErrMesg";
 import SuccessMsg from "./messages/SuccessMsg";
 import { useDispatch,useSelector  } from "react-redux";
 import { addTodo } from "@/redux/TodoSlice";
-import { motion } from "framer-motion";
 
 interface Todos {
   id: number;
   text: string;
   todo: string;
+
 }
 
-const InputForm = () => {
+const InputForm = ({id, text, todo}: Todos) => {
   const dispatch = useDispatch();
 	const todoList = useSelector((state: any) => state.todo.todoList);
   const [todoValue, setTodoValue] = useState("");
@@ -24,7 +24,6 @@ const InputForm = () => {
   const [successMsg, setSuccessMsg] = useState("");
   const [showErr, setShowErr] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showRemove, setShowRemove] = useState(false);
 	const [todoArray, setTodoArray] = useState<{ id: number; text: string }[]>(
     []
   );
@@ -121,7 +120,7 @@ const InputForm = () => {
             <>
               {" "}
               {todoList.map((item:any) => (
-                <TodoList key={item.id} todo={item.todo} id={item.id} />
+                <TodoList key={item.id} todo={item.todo} id={item.id} text={text} />
               ))}
             </>
           ) : (
